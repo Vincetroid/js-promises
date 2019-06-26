@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    //Obtained and modified from https://javascript.info/promise-basics
+
+    //PROMESA 1. Fundamentos
+    // new Promise(function(resolve, reject) {
+    //     console.log('Soy el cantante prometiendo un nuevo sencillo')
+    //     setTimeout(() => resolve('Ya voy a lanzar el sencillo'), 1000); //setTimeout ejemplifica el retardo real en la práctica
+    //     // setTimeout(() => reject(new Error("Whoops!")), 1000);
+    //     // setTimeout(() => reject("Whoops!"), 1000);
+    // }).then(result => {
+    //     console.log(result);
+    // }).then(result => {
+    //     console.log('Hacer otra cosa aqui porque result es: ' + result);
+    // }).catch(errorResult => {
+    //     console.log(errorResult);
+    // });
+
+
+    //PROMESA 2. Resolve con una función como argumento
+    // new Promise(function(resolve, reject) {
+    //     console.log('Voy a saludar')
+    //     setTimeout(() => resolve(sayHello()), 1000);
+    //     // setTimeout(() => reject(new Error("Whoops!")), 1000);
+    //     // setTimeout(() => reject("Whoops!"), 1000);
+    // }).then(result => {
+    //     console.log(result);
+    // }).catch(errorResult => {
+    //     console.log(errorResult);
+    // });
+
+    // function sayHello() {
+    //     return 'Hello!';
+    // }
+
+    //PROMESA 3. Solo se va a llamar a la primera resolución resolución que se encuentre
+    // new Promise(function(resolve, rejected) {
+    //     console.log('Ejecutando promesa');
+    //     setTimeout(() => resolve('Soy el primero y el único resuelto'), 1000);
+    //     setTimeout(() => resolve('Soy el segundo resuelto'), 1000);
+    //     setTimeout(() => resolve('Soy el tercero resuelto'), 1000);
+    // }).then(result => {
+    //     console.log(result);
+    // });
+
+    //PROMESA 4. Uso de finally y funciones.
+    // new Promise(function(resolve, rejected) {
+    //     console.log('Executor');
+    //     resolve(getSuccess());
+    //     // rejected(getError());
+    // }).then(result => {
+    //     console.log(result);
+    // }).catch(result => {
+    //     console.log(result);
+    // }).finally(() => {
+    //     console.log('Estas en finally, no importa el resultado, aquí siempre se llegará, aqui se puede hacer limpieza, parar o cargar indicadores.')
+    // });
+
+    // function getSuccess() {
+    //     return 'Resultado exitoso de la promesa';
+    // }
+    // function getError() {
+    //     return new Error("Whoops!")
+    // }
+
+    //PROMESA 5. Se puede usar finally no solo al final.
+    // new Promise(function(resolve, rejected) {
+    //     console.log('Executor');
+    //     resolve(getSuccess());
+    //     // rejected(getError());
+    // }).finally(() => {
+    //     console.log('Promesa lista')
+    // }).then(result => {
+    //     console.log(result);
+    // }).catch(result => {
+    //     console.log(result);
+    // });
+
+    // function getSuccess() {
+    //     return 'Resultado exitoso de la promesa';
+    // }
+    // function getError() {
+    //     return new Error("Whoops!")
+    // }
+
+    //PROMESA 6. Usando notación normal de funciones
+    // new Promise(function(resolve, reject) {
+    //     console.log('Soy el cantante prometiendo un nuevo sencillo')
+    //     resolve('Ya voy a lanzar el sencillo');
+    //     // setTimeout(() => reject(new Error("Whoops!")), 1000);
+    //     // setTimeout(() => reject("Whoops!"), 1000);
+    // }).then(function(result){
+    //     console.log(result);
+    // }).then(function(result){
+    //     console.log('Hacer otra cosa aqui porque result es: ' + result);
+    // }).catch(function(errorResult){
+    //     console.log(errorResult);
+    // });
+
+    //PROMESA 7. Promesa resuelta inmeditamente
+    // new Promise(resolve => resolve('Resuelta')).then(result => {
+    //     console.log(result);
+    // });
+
+    //PROMESA 8. Promesa con objeto como argumento
+    // let obj = {
+    //     prop1: 'I am prop 1',
+    //     sum: function(n1, n2) {
+    //         return n1 + n2;
+    //     }
+    // }
+    // new Promise(function(resolve, reject){
+    //     console.log('Inicio de promesa con objeto como parametro');
+    //     resolve(obj.sum(4, 5));
+    // }).then(result => {
+    //     console.log(result);
+    // }).finally(() => {
+    //     console.log('Ha finalizado la promesa')
+    // });
+    
+    //PROMESA 9. Promesa con objeto local y cambio de result por script
+    new Promise(function(resolve, reject){
+        let obj2 = {
+            prop1: 'I am prop 1',
+            src: 'https://javascript.info/promise-basics',
+        }
+
+        console.log('Inicio de promesa con objeto como parametro');
+        resolve(obj2);
+    }).then(script => { //pudo ser nombrado como result
+        console.log(script.src);
+    }).finally(() => {
+        console.log('Ha finalizado la promesa')
+    });
+
+    //PROMESA 9. Promesa resuelta inmeditamente
+    // function loadScript(src) {
+    //     let script = document.createElement
+    // }
+
+    // let promise = loadScript('https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js');
+    // promise.then({
+
+    // })
+
+</script>
+</body>
+</html>
