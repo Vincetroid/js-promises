@@ -127,29 +127,51 @@
     // });
     
     //PROMESA 9. Promesa con objeto local y cambio de result por script
-    new Promise(function(resolve, reject){
-        let obj2 = {
-            prop1: 'I am prop 1',
-            src: 'https://javascript.info/promise-basics',
-        }
+    // new Promise(function(resolve, reject){
+    //     let obj2 = {
+    //         prop1: 'I am prop 1',
+    //         src: 'https://javascript.info/promise-basics',
+    //     }
 
-        console.log('Inicio de promesa con objeto como parametro');
-        resolve(obj2);
-    }).then(script => { //pudo ser nombrado como result
-        console.log(script.src);
-    }).finally(() => {
-        console.log('Ha finalizado la promesa')
-    });
+    //     console.log('Inicio de promesa con objeto como parametro');
+    //     resolve(obj2);
+    // }).then(script => { //pudo ser nombrado como result
+    //     console.log(script.src);
+    // }).finally(() => {
+    //     console.log('Ha finalizado la promesa')
+    // });
 
     //PROMESA 9. Promesa resuelta inmeditamente
     // function loadScript(src) {
-    //     let script = document.createElement
+    //     return new Promise(function(resolve, reject) {
+    //         let script = document.createElement('script');
+    //         script.src = src;
+    //         script.onload = () => resolve(script);
+    //         script.onerror = () => reject(new Error('Script load error'));
+
+    //         document.head.append(script);
+    //     });
     // }
 
     // let promise = loadScript('https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js');
-    // promise.then({
+    // promise.then(result => {
+    //     console.log('Resuelto')
+    //     console.log(result.src)
+    // }).catch(result => {
+    //     console.log(result);
+    // });
 
-    // })
+    //PROMESA 10. Delay with a promise. Check there is no arguments in resolve
+    // function delay(ms) {
+    //     return new Promise(function(resolve, reject) {
+    //         setTimeout(resolve, ms);
+    //     });
+    // }
+
+    // delay(3000).then(() => alert('runs after 3 seconds'));
+
+    // PROMESA 11. Animated circle with promise
+    
 
 </script>
 </body>
